@@ -15,7 +15,6 @@ public class UserController {
     private UserDao userDao;
 
 
-
     @RequestMapping(value = "api/users",  method = RequestMethod.GET)
     public List<User> getUsers() {
         return userDao.getUsers();
