@@ -13,6 +13,7 @@ import javax.crypto.spec.SecretKeySpec;
 import javax.xml.bind.DatatypeConverter;
 import java.security.Key;
 import java.util.Date;
+@Component
 public class JWTUtil {
     @Value("${security.jwt.secret}")
     private String key;

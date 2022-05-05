@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
@@ -51,4 +52,9 @@ public class User {
     @Setter
     @Column(name = "is_active", columnDefinition = "boolean default false")
     private boolean isActive;
+
+    @Getter
+    @Setter
+    @Column(name = "enrollment_date")
+    private LocalDateTime enrollmentDate;
 }

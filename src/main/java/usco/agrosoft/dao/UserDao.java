@@ -4,6 +4,7 @@ import java.util.*;
 
 public interface UserDao {
     List<User> getUsers();
-    void register(User user);
+    String register(User user);
 
+    User login(User user);
 }

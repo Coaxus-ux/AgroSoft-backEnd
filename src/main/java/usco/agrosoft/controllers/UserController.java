@@ -8,6 +8,8 @@ import usco.agrosoft.utils.JWTUtil;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 import java.util.*;
 @RestController
 public class UserController {
@@ -21,11 +23,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "api/users", method = RequestMethod.POST)
-    public void registerUser(@RequestBody User user) {
+    public String registerUser(@RequestBody User user) {
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
         String hash = argon2.hash(1, 1024, 1, user.getPassword());
         user.setPassword(hash);
         user.setTokenUser(UUID.randomUUID().toString());
-        userDao.register(user);
+        user.setEnrollmentDate(LocalDateTime.now());
+        return userDao.register(user);
     }
 }
