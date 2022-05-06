@@ -16,7 +16,6 @@ public class UserController {
     @Autowired
     private UserDao userDao;
 
-
     @RequestMapping(value = "api/users",  method = RequestMethod.GET)
     public List<User> getUsers() {
         return userDao.getUsers();
