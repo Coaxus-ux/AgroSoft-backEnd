@@ -15,7 +15,7 @@ public class AuthController {
     @Autowired
     private JWTUtil jwtUtil;
 
-    @RequestMapping(value = "api/login", method = RequestMethod.GET)
+    @RequestMapping(value = "api/login", method = RequestMethod.POST)
     public String login(@RequestBody User user) {
         User userLogged = userDao.login(user);
         if (userLogged != null) {
